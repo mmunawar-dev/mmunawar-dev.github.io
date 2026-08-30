@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munawar Hassan — Android Developer</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237f52ff'/%3E%3Cstop offset='1' stop-color='%23ff7a4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230d0d13'/%3E%3Crect x='4' y='4' width='56' height='56' rx='13' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EMH%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Munawar Hassan — Android Developer skilled in Kotlin, MVVM, and production Play Store apps.">
+
+<!-- Open Graph / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Munawar Hassan — Android Developer">
+<meta property="og:description" content="3+ years building Kotlin/MVVM Android apps — casting, geo-tagging, security & monetized utilities live on the Play Store.">
+<meta property="og:url" content="https://mmunawar-dev.github.io/">
+<meta property="og:image" content="https://mmunawar-dev.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter card (also used by some link-preview tools) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Munawar Hassan — Android Developer">
+<meta name="twitter:description" content="3+ years building Kotlin/MVVM Android apps — casting, geo-tagging, security & monetized utilities live on the Play Store.">
+<meta name="twitter:image" content="https://mmunawar-dev.github.io/og-image.png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0d13;
+    --surface:#15151d;
+    --surface-2:#1c1c27;
+    --line: rgba(241,240,245,0.09);
+    --text:#f1f0f5;
+    --muted:#8b899c;
+    --kotlin:#7f52ff;
+    --kotlin-2:#a480ff;
+    --ember:#ff7a4a;
+    --green:#5fe3a1;
+    --radius: 18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    background-image:
+      radial-gradient(600px 400px at 85% -5%, rgba(127,82,255,0.20), transparent 60%),
+      radial-gradient(500px 350px at 5% 10%, rgba(255,122,74,0.10), transparent 60%);
+  }
+  ::selection{background:var(--kotlin); color:#fff;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(13,13,19,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:17px; letter-spacing:-0.01em;}
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); animation:pulse 2.2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
+  .navlinks{display:flex; gap:30px; font-size:14px; color:var(--muted);}
+  .navlinks a{transition:color .2s;}
+  .navlinks a:hover{color:var(--text);}
+  .navcta{
+    padding:9px 18px; border-radius:100px; font-size:13px; font-weight:600;
+    background:linear-gradient(135deg,var(--kotlin),var(--kotlin-2));
+    color:#fff; font-family:'JetBrains Mono';
+  }
+  .navmobile{display:none;}
+  @media(max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:150px 0 90px;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+  }
+  @media(max-width:900px){ header.hero{grid-template-columns:1fr; padding:130px 0 60px;} }
+
+  .eyebrow{
+    font-family:'JetBrains Mono'; font-size:12.5px; color:var(--green);
+    display:flex; align-items:center; gap:8px; margin-bottom:22px;
+    opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.05s;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--green);}
+
+  h1.hero-title{
+    font-family:'Space Grotesk'; font-weight:700; font-size:clamp(2.4rem,5vw,3.7rem);
+    line-height:1.05; letter-spacing:-0.02em; margin-bottom:22px;
+    opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.15s;
+  }
+  h1.hero-title span{
+    background:linear-gradient(100deg,var(--kotlin-2),var(--ember));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{
+    font-size:16.5px; color:var(--muted); max-width:480px; line-height:1.65; margin-bottom:32px;
+    opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.25s;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:fadeUp .7s ease forwards; animation-delay:.35s;}
+  .btn-primary{
+    padding:13px 24px; border-radius:12px; font-weight:600; font-size:14.5px;
+    background:linear-gradient(135deg,var(--kotlin),#5a2fe0);
+    box-shadow:0 8px 24px rgba(127,82,255,0.35);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(127,82,255,.45);}
+  .btn-ghost{
+    padding:13px 24px; border-radius:12px; font-weight:600; font-size:14.5px;
+    border:1px solid var(--line); color:var(--text);
+    transition:border-color .25s, background .25s;
+  }
+  .btn-ghost:hover{border-color:rgba(241,240,245,0.3); background:rgba(255,255,255,0.03);}
+
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+
+  /* phone mockup */
+  .phone-stage{ display:flex; justify-content:center; opacity:0; animation:fadeUp .9s ease forwards; animation-delay:.3s; }
+  .phone{
+    width:290px; height:590px; border-radius:42px; background:linear-gradient(160deg,#1a1a24,#0f0f16);
+    border:1px solid rgba(255,255,255,0.08); padding:14px;
+    box-shadow:0 40px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(127,82,255,0.08) inset;
+    position:relative;
+  }
+  .phone::before{
+    content:''; position:absolute; top:26px; left:50%; transform:translateX(-50%);
+    width:70px; height:6px; border-radius:6px; background:#000;
+  }
+  .screen{
+    width:100%; height:100%; border-radius:30px; background:linear-gradient(180deg,#101018,#0a0a10);
+    overflow:hidden; position:relative; padding:36px 16px 16px;
+  }
+  .status-bar{
+    display:flex; justify-content:space-between; font-family:'JetBrains Mono'; font-size:10px;
+    color:var(--muted); margin-bottom:22px; padding:0 4px;
+  }
+  .status-bar .clock{color:var(--text);}
+  .home-greeting{font-family:'Space Grotesk'; font-size:13px; color:var(--muted); margin-bottom:18px; padding:0 4px;}
+  .app-grid{display:grid; grid-template-columns:repeat(3,1fr); column-gap:16px; row-gap:26px; padding:0 2px;}
+  .app-tile{
+    aspect-ratio:1; border-radius:17px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:transform .25s ease, box-shadow .25s ease;
+    position:relative;
+    box-shadow:0 6px 14px -4px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.14);
+  }
+  .app-tile svg{width:50%; height:50%; filter:drop-shadow(0 1px 1px rgba(0,0,0,0.25));}
+  .app-tile:hover{transform:translateY(-4px) scale(1.06); box-shadow:0 12px 22px -6px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.18);}
+  .app-tile .label{
+    position:absolute; top:calc(100% + 6px); left:0; right:0; text-align:center;
+    font-size:8.5px; letter-spacing:.02em; color:var(--muted); font-family:'JetBrains Mono'; white-space:nowrap;
+  }
+  .dock{
+    margin-top:40px; display:flex; justify-content:space-around; background:rgba(255,255,255,0.04);
+    border-radius:18px; padding:10px 8px;
+  }
+  .dock .app-tile{width:34px; height:34px; box-shadow:none;}
+
+  /* terminal strip under hero */
+  .term{
+    margin-top:26px; background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:14px 16px; font-family:'JetBrains Mono'; font-size:12px; color:var(--green);
+    overflow:hidden; white-space:nowrap;
+  }
+  .term .caret{display:inline-block; width:7px; height:12px; background:var(--green); margin-left:2px; animation:blink 1s steps(1) infinite; vertical-align:middle;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:90px 0;}
+  .sec-head{margin-bottom:44px;}
+  .sec-eyebrow{font-family:'JetBrains Mono'; font-size:12px; color:var(--kotlin-2); margin-bottom:10px;}
+  .sec-title{font-family:'Space Grotesk'; font-weight:700; font-size:clamp(1.7rem,3vw,2.3rem); letter-spacing:-0.01em;}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- SKILLS (installed packages) ---------- */
+  .pkg-window{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  }
+  .pkg-titlebar{
+    display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--line);
+    font-family:'JetBrains Mono'; font-size:12px; color:var(--muted);
+  }
+  .pkg-titlebar .tdot{width:10px; height:10px; border-radius:50%;}
+  .pkg-body{padding:22px 26px; display:grid; grid-template-columns:repeat(2,1fr); gap:8px 34px; font-family:'JetBrains Mono'; font-size:13.5px;}
+  @media(max-width:700px){.pkg-body{grid-template-columns:1fr;}}
+  .pkg-row{display:flex; gap:10px; padding:9px 0; border-bottom:1px dashed var(--line); align-items:baseline;}
+  .pkg-row:last-child{border-bottom:none;}
+  .pkg-cat{color:var(--muted); min-width:118px; flex-shrink:0;}
+  .pkg-val{color:var(--text);}
+  .pkg-val .tag{color:var(--green);}
+
+  /* ---------- EXPERIENCE (commit log) ---------- */
+  .log{position:relative; padding-left:28px;}
+  .log::before{content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .commit{position:relative; padding-bottom:44px;}
+  .commit:last-child{padding-bottom:0;}
+  .commit::before{
+    content:''; position:absolute; left:-28px; top:4px; width:11px; height:11px; border-radius:50%;
+    background:var(--surface-2); border:2px solid var(--kotlin-2);
+  }
+  .commit.current::before{background:var(--green); border-color:var(--green); box-shadow:0 0 0 4px rgba(95,227,161,0.15);}
+  .commit-hash{font-family:'JetBrains Mono'; font-size:11.5px; color:var(--ember); margin-bottom:6px;}
+  .commit-title{font-family:'Space Grotesk'; font-weight:600; font-size:19px; margin-bottom:3px;}
+  .commit-meta{font-size:13px; color:var(--muted); margin-bottom:14px;}
+  .commit-body{list-style:none; display:flex; flex-direction:column; gap:9px;}
+  .commit-body li{font-size:14.5px; color:#c9c7d4; line-height:1.55; padding-left:18px; position:relative;}
+  .commit-body li::before{content:'+'; position:absolute; left:0; color:var(--green); font-family:'JetBrains Mono';}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media(max-width:900px){.proj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px;
+    display:flex; flex-direction:column; gap:14px; transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .proj-card:hover{transform:translateY(-5px); border-color:rgba(127,82,255,0.4); box-shadow:0 16px 32px -12px rgba(127,82,255,0.25);}
+  .proj-icon{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .proj-icon svg{width:52%; height:52%;}
+  .proj-name{font-family:'Space Grotesk'; font-weight:600; font-size:16.5px;}
+  .proj-desc{font-size:13.5px; color:var(--muted); line-height:1.55; flex-grow:1;}
+  .proj-link{
+    font-family:'JetBrains Mono'; font-size:12px; color:var(--kotlin-2); display:inline-flex; align-items:center; gap:6px;
+    transition:gap .2s;
+  }
+  .proj-link:hover{gap:10px; color:var(--green);}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:700px){.edu-grid{grid-template-columns:1fr;}}
+  .edu-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px;}
+  .edu-degree{font-family:'Space Grotesk'; font-weight:600; font-size:17px; margin-bottom:6px;}
+  .edu-school{color:var(--kotlin-2); font-size:14px; margin-bottom:4px;}
+  .edu-date{font-family:'JetBrains Mono'; font-size:12px; color:var(--muted); margin-bottom:14px;}
+  .edu-subjects{font-size:13px; color:#c9c7d4;}
+  .edu-subjects span{color:var(--muted);}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-panel{
+    background:linear-gradient(135deg, rgba(127,82,255,0.14), rgba(255,122,74,0.08));
+    border:1px solid rgba(127,82,255,0.3); border-radius:24px; padding:56px 46px;
+    text-align:center;
+  }
+  .contact-panel .sec-title{margin-bottom:14px;}
+  .contact-panel p{color:var(--muted); max-width:480px; margin:0 auto 28px; font-size:15px; line-height:1.6;}
+  .contact-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  footer{padding:40px 0 50px; text-align:center; color:var(--muted); font-size:13px; font-family:'JetBrains Mono';}
+  footer a{color:var(--kotlin-2);}
+
+  /* ---------- ICON BUTTONS ---------- */
+  .icon-btn{
+    width:40px; height:40px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+    flex-shrink:0; transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:0 4px 12px -4px rgba(0,0,0,0.5);
+  }
+  .icon-btn svg{width:48%; height:48%;}
+  .icon-btn:hover{transform:translateY(-3px) scale(1.06);}
+  .icon-inline{width:16px; height:16px; display:inline-block; vertical-align:-3px; margin-right:8px;}
+  .icon-inline svg{width:100%; height:100%;}
+
+  .contact-cards{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .contact-card{
+    display:flex; align-items:center; gap:12px; padding:12px 20px 12px 12px; border-radius:100px;
+    background:rgba(255,255,255,0.03); border:1px solid var(--line); text-align:left;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .contact-card:hover{transform:translateY(-3px); border-color:rgba(127,82,255,0.4); background:rgba(255,255,255,0.06);}
+  .contact-card .icon-btn{box-shadow:none;}
+  .contact-card .cc-label{font-size:10.5px; color:var(--muted); font-family:'JetBrains Mono'; text-transform:uppercase; letter-spacing:.04em;}
+  .contact-card .cc-value{font-size:14px; font-weight:600; font-family:'Space Grotesk';}
+
+  .social-row{display:flex; gap:12px; justify-content:center; margin-top:16px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Munawar<span style="color:var(--muted); font-weight:400;">.hassan</span></div>
+    <div class="navlinks">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Apps</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a class="icon-btn" style="background:linear-gradient(135deg,#38BDF8,#2563EB);" href="https://www.linkedin.com/in/munawar-hussain-q57/" target="_blank" rel="noopener" aria-label="LinkedIn" id="navLinkedin"></a>
+      <a class="navcta" href="#contact">Say hi</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap" style="display:contents;">
+    <div>
+      <div class="eyebrow">ANDROID DEVELOPER · RAWALPINDI, PK</div>
+      <h1 class="hero-title">Building Android apps that ship, scale, and <span>stay alive in production.</span></h1>
+      <p class="hero-sub">3+ years turning Kotlin and MVVM into real apps on the Play Store — casting &amp; TV connectivity, geo-tagging, security, and monetized utilities used by thousands of installs.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#projects">View shipped apps</a>
+        <a class="btn-ghost" href="https://www.linkedin.com/in/munawar-hussain-q57/" target="_blank" rel="noopener"><span class="icon-inline" id="heroLinkedinIcon"></span>LinkedIn profile</a>
+      </div>
+      <div class="term" id="termLine">$ <span id="termText"></span><span class="caret"></span></div>
+    </div>
+
+    <div class="phone-stage">
+      <div class="phone">
+        <div class="screen">
+          <div class="status-bar"><span class="clock" id="clockText">9:41</span><span>Kotlin · Android 14</span></div>
+          <div class="home-greeting">Production apps</div>
+          <div class="app-grid" id="appGrid"></div>
+          <div class="dock" id="dockGrid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">// STACK</div>
+      <h2 class="sec-title">Installed packages</h2>
+    </div>
+    <div class="pkg-window reveal">
+      <div class="pkg-titlebar">
+        <span class="tdot" style="background:#ff5f57;"></span>
+        <span class="tdot" style="background:#febc2e;"></span>
+        <span class="tdot" style="background:#28c840;"></span>
+        <span style="margin-left:8px;">build.gradle.kts — skills</span>
+      </div>
+      <div class="pkg-body">
+        <div class="pkg-row"><span class="pkg-cat">languages</span><span class="pkg-val"><span class="tag">Kotlin</span>, Java</span></div>
+        <div class="pkg-row"><span class="pkg-cat">architecture</span><span class="pkg-val"><span class="tag">MVVM</span></span></div>
+        <div class="pkg-row"><span class="pkg-cat">tools</span><span class="pkg-val">Android Studio, Android SDK</span></div>
+        <div class="pkg-row"><span class="pkg-cat">jetpack</span><span class="pkg-val">ViewModel, Navigation, <span class="tag">Coroutines</span></span></div>
+        <div class="pkg-row"><span class="pkg-cat">networking</span><span class="pkg-val">Retrofit</span></div>
+        <div class="pkg-row"><span class="pkg-cat">databases</span><span class="pkg-val">SQLite, Room DB, <span class="tag">Firebase</span></span></div>
+        <div class="pkg-row"><span class="pkg-cat">monetization</span><span class="pkg-val">Google AdMob</span></div>
+        <div class="pkg-row"><span class="pkg-cat">vcs</span><span class="pkg-val">Git, GitHub</span></div>
+        <div class="pkg-row"><span class="pkg-cat">ui</span><span class="pkg-val">Responsive UI Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">// LOG --oneline --reverse</div>
+      <h2 class="sec-title">Work experience</h2>
+    </div>
+    <div class="log">
+      <div class="commit current reveal">
+        <div class="commit-hash">HEAD → main · Jun 2025 – Present</div>
+        <div class="commit-title">Android Developer — BITBOX (Pvt) Ltd, Rawalpindi</div>
+        <div class="commit-meta">Casting, TV connectivity &amp; production stability</div>
+        <ul class="commit-body">
+          <li>Completed and stabilized a partially built TV Remote &amp; Casting app into a shipped, production-ready release.</li>
+          <li>Worked with Chromecast, Connect SDK, screen mirroring, web mirroring, and TV device connectivity.</li>
+          <li>Built a Sony TV Remote app for Sony Bravia and Android TVs from the ground up.</li>
+          <li>Fixed Firebase crashes, QA-reported bugs and ANRs, and optimized AdMob performance across multiple live apps.</li>
+          <li>Contributed to TV Remote &amp; Cast, GPS Camera, Earth Map &amp; Navigation, Smart Printer, and Smart Data Transfer.</li>
+        </ul>
+      </div>
+      <div class="commit reveal">
+        <div class="commit-hash">#freelance · Sep 2024 – Apr 2025</div>
+        <div class="commit-title">Android Developer — Freelance, Remote</div>
+        <div class="commit-meta">Custom builds to client spec</div>
+        <ul class="commit-body">
+          <li>Designed and delivered custom Android apps to client requirements with clean, timely handoffs.</li>
+          <li>Shipped Notebook, Recipebook, Speedometer, and a College Alert app.</li>
+        </ul>
+      </div>
+      <div class="commit reveal">
+        <div class="commit-hash">#bitzone · Nov 2022 – Jun 2024</div>
+        <div class="commit-title">Android Developer — Bitzone Technology (Pvt) Ltd, Rawalpindi</div>
+        <div class="commit-meta">First production apps, ad revenue</div>
+        <ul class="commit-body">
+          <li>Built 5+ production-ready Android apps from scratch using Kotlin, Android Studio, and RESTful APIs.</li>
+          <li>Integrated Google AdMob across every app, tuning ad-load flow to maximize revenue without hurting UX.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">// PLAY STORE</div>
+      <h2 class="sec-title">Shipped apps</h2>
+    </div>
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">// EDUCATION</div>
+      <h2 class="sec-title">Coursework</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-degree">BS Computer Science</div>
+        <div class="edu-school">Arid Agriculture University, Rawalpindi</div>
+        <div class="edu-date">Feb 2017 – Aug 2022</div>
+        <div class="edu-subjects"><span>Subjects:</span> Java, HCI, OOP, Architecture, DSA</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-degree">FSc Pre-Engineering</div>
+        <div class="edu-school">Asif Saleem Inter College, Alipur, Muzaffargarh</div>
+        <div class="edu-date">Jan 2014 – Jan 2016</div>
+        <div class="edu-subjects"><span>Subjects:</span> Mathematics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel reveal">
+      <div class="sec-eyebrow" style="justify-content:center; display:flex;">// CONTACT</div>
+      <h2 class="sec-title">Have an Android app to build?</h2>
+      <p>Open to full-time roles and freelance builds — from casting &amp; connectivity apps to utilities that need to survive real-world devices.</p>
+      <div class="contact-cards" id="contactCards"></div>
+      <div class="social-row">
+        <a class="icon-btn" style="background:linear-gradient(135deg,#38BDF8,#2563EB); width:44px; height:44px;" href="https://www.linkedin.com/in/munawar-hussain-q57/" target="_blank" rel="noopener" aria-label="LinkedIn" id="socialLinkedin"></a>
+        <a class="icon-btn" style="background:linear-gradient(135deg,#8B5CF6,#6236D9); width:44px; height:44px;" href="mailto:munawarhassanbiit@gmail.com" aria-label="Email" id="socialMail"></a>
+        <a class="icon-btn" style="background:linear-gradient(135deg,#34D399,#0D9488); width:44px; height:44px;" href="tel:+923155714684" aria-label="Call" id="socialPhone"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social-row" id="footerSocial" style="margin-bottom:14px;"></div>
+  Built with Kotlin-flavored care · <a href="https://www.linkedin.com/in/munawar-hussain-q57/" target="_blank" rel="noopener">linkedin.com/in/munawar-hussain-q57</a> · © 2026 Munawar Hassan
+</footer>
+
+<script>
+// ---- Icon defs (solid, filled glyphs) ----
+const icons = {
+  printer: `<svg viewBox="0 0 24 24"><path fill="white" d="M6 3h12a1 1 0 011 1v4H5V4a1 1 0 011-1zm13 6a2 2 0 012 2v5a2 2 0 01-2 2h-2v3a1 1 0 01-1 1H8a1 1 0 01-1-1v-3H5a2 2 0 01-2-2v-5a2 2 0 012-2h14zm-3 8H8v3h8v-3zm2.5-5a1 1 0 100 2 1 1 0 000-2z"/></svg>`,
+  locate: `<svg viewBox="0 0 24 24"><path fill="white" d="M12 2a7 7 0 017 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 017-7zm0 4.3A2.7 2.7 0 1012 11.7a2.7 2.7 0 000-5.4z"/></svg>`,
+  tasbeeh: `<svg viewBox="0 0 24 24"><g fill="white"><circle cx="12" cy="4" r="1.9"/><circle cx="18.2" cy="7.6" r="1.7"/><circle cx="19.6" cy="14.7" r="1.7"/><circle cx="14.9" cy="20.3" r="1.7"/><circle cx="7.7" cy="20" r="1.7"/><circle cx="3.9" cy="14" r="1.7"/><circle cx="5.6" cy="6.9" r="1.7"/><circle cx="12" cy="13" r="2.6"/></g></svg>`,
+  cast: `<svg viewBox="0 0 24 24"><path fill="white" d="M21 3H3a2 2 0 00-2 2v3h2V5h18v14h-8v2h8a2 2 0 002-2V5a2 2 0 00-2-2zM1 18v3h3a3 3 0 00-3-3zm0-4v2a5 5 0 015 5h2a7 7 0 00-7-7zm0-4v2a9 9 0 019 9h2a11 11 0 00-11-11z"/></svg>`,
+  shield: `<svg viewBox="0 0 24 24"><path fill="white" d="M12 1l9 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4z"/><path fill="#1c1114" d="M12.75 7h-1.5v6.5h1.5V7zm0 8.2h-1.5V17h1.5v-1.8z"/></svg>`,
+  camera: `<svg viewBox="0 0 24 24"><path fill="white" d="M9 3.5L7.6 5H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2h-3.6L15 3.5H9z"/><circle cx="12" cy="14" r="4" fill="#1c1114"/><circle cx="12" cy="14" r="2.4" fill="white"/></svg>`,
+  mirror: `<svg viewBox="0 0 24 24"><path fill="white" d="M20 17a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v3h2V6h16v9h-7v2h7z"/><path fill="white" d="M8 21h8v-2H8v2zM1 14v2a5 5 0 015 5h2a7 7 0 00-7-7zm0 4v3h3a3 3 0 00-3-3z"/></svg>`,
+  mail: `<svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2.5" fill="white"/><path d="M3.2 6.6l8.8 6.1 8.8-6.1" fill="none" stroke="black" stroke-opacity="0.22" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  phone: `<svg viewBox="0 0 24 24"><path fill="white" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>`,
+  linkedin: `<svg viewBox="0 0 24 24"><path fill="white" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>`
+};
+
+const apps = [
+  {name:"Smart Printer", short:"Print", icon:"printer", grad:"linear-gradient(135deg,#8B5CF6,#6236D9)",
+    desc:"Mobile print utility for sending documents and photos straight from your phone to any printer.",
+    url:"https://play.google.com/store/apps/details?id=com.smartprinter.printdocuments.mobileprint&pcampaignid=web_share"},
+  {name:"Number Locator", short:"Locate", icon:"locate", grad:"linear-gradient(135deg,#FB923C,#EA580C)",
+    desc:"Caller ID and GPS number locator that maps incoming calls to approximate locations.",
+    url:"https://play.google.com/store/apps/details?id=com.caller.id.phone.number.gps.locator.maps&pcampaignid=web_share"},
+  {name:"Tasbeeh Counter", short:"Tasbeeh", icon:"tasbeeh", grad:"linear-gradient(135deg,#34D399,#0D9488)",
+    desc:"Digital tasbeeh / dhikr counter with clean, distraction-free tally tracking.",
+    url:"https://play.google.com/store/apps/details?id=com.digitaltasbihcounter.tasbeeh&pcampaignid=web_share"},
+  {name:"Chromecast TV", short:"Cast", icon:"cast", grad:"linear-gradient(135deg,#38BDF8,#2563EB)",
+    desc:"Screen mirroring and casting app for streaming phone content straight to your TV.",
+    url:"https://play.google.com/store/apps/details?id=com.tv.screenmirror.casting&pcampaignid=web_share"},
+  {name:"Who Touch My Phone", short:"WTMP", icon:"shield", grad:"linear-gradient(135deg,#F87171,#DC2626)",
+    desc:"Anti-theft security app that detects unauthorized phone movement and triggers an alarm with intruder capture.",
+    url:"https://play.google.com/store/apps/details?id=com.securityapps.wtmp.intruder.photo.antitheft&pcampaignid=web_share"},
+  {name:"GPS Camera", short:"GPS Cam", icon:"camera", grad:"linear-gradient(135deg,#2DD4BF,#0891B2)",
+    desc:"Geo-tagging camera with real-time location stamping and precise area measurement.",
+    url:"https://play.google.com/store/apps/details?id=com.gps.mapcamera.locationstamp&pcampaignid=web_share"},
+  {name:"Screen Mirror", short:"Mirror", icon:"mirror", grad:"linear-gradient(135deg,#818CF8,#4F46E5)",
+    desc:"Lightweight screen mirroring and casting utility for sharing your display to a TV.",
+    url:"https://play.google.com/store/apps/details?id=com.screen.mirroring.tv.casting.share&pcampaignid=web_share"}
+];
+
+const appGrid = document.getElementById('appGrid');
+const dockGrid = document.getElementById('dockGrid');
+apps.slice(0,6).forEach(a=>{
+  const tile = document.createElement('div');
+  tile.className = 'app-tile';
+  tile.style.background = a.grad;
+  tile.innerHTML = icons[a.icon] + `<span class="label">${a.short}</span>`;
+  tile.onclick = ()=>window.open(a.url,'_blank');
+  appGrid.appendChild(tile);
+});
+apps.forEach(a=>{
+  const d = document.createElement('div');
+  d.className='app-tile';
+  d.style.background = a.grad;
+  d.style.borderRadius = '10px';
+  d.innerHTML = icons[a.icon];
+  d.onclick = ()=>window.open(a.url,'_blank');
+  dockGrid.appendChild(d);
+});
+
+// project cards
+const projGrid = document.getElementById('projGrid');
+apps.forEach(a=>{
+  const card = document.createElement('div');
+  card.className = 'proj-card';
+  card.innerHTML = `
+    <div class="proj-icon" style="background:${a.grad}">${icons[a.icon]}</div>
+    <div class="proj-name">${a.name}</div>
+    <div class="proj-desc">${a.desc}</div>
+    <a class="proj-link" href="${a.url}" target="_blank" rel="noopener">View on Play Store →</a>
+  `;
+  projGrid.appendChild(card);
+});
+
+// icon buttons: nav + hero
+document.getElementById('navLinkedin').innerHTML = icons.linkedin;
+document.getElementById('heroLinkedinIcon').innerHTML = icons.linkedin;
+
+// contact info cards (icon + label + value)
+const contactData = [
+  {icon:'mail', label:'Email', value:'munawarhassanbiit@gmail.com', href:'mailto:munawarhassanbiit@gmail.com', grad:'linear-gradient(135deg,#8B5CF6,#6236D9)'},
+  {icon:'phone', label:'Phone', value:'+92 315 5714684', href:'tel:+923155714684', grad:'linear-gradient(135deg,#34D399,#0D9488)'},
+  {icon:'linkedin', label:'LinkedIn', value:'munawar-hussain-q57', href:'https://www.linkedin.com/in/munawar-hussain-q57/', grad:'linear-gradient(135deg,#38BDF8,#2563EB)'},
+  {icon:'locate', label:'Location', value:'Rawalpindi, Pakistan', href:null, grad:'linear-gradient(135deg,#FB923C,#EA580C)'}
+];
+const contactCards = document.getElementById('contactCards');
+contactData.forEach(c=>{
+  const el = document.createElement(c.href ? 'a' : 'div');
+  el.className = 'contact-card';
+  if(c.href){ el.href = c.href; if(c.href.startsWith('http')){el.target='_blank'; el.rel='noopener';} }
+  el.innerHTML = `
+    <span class="icon-btn" style="background:${c.grad};">${icons[c.icon]}</span>
+    <span>
+      <span class="cc-label" style="display:block;">${c.label}</span>
+      <span class="cc-value">${c.value}</span>
+    </span>`;
+  contactCards.appendChild(el);
+});
+
+// social row icons (contact section + footer)
+document.getElementById('socialLinkedin').innerHTML = icons.linkedin;
+document.getElementById('socialMail').innerHTML = icons.mail;
+document.getElementById('socialPhone').innerHTML = icons.phone;
+
+const footerSocial = document.getElementById('footerSocial');
+[
+  {icon:'linkedin', href:'https://www.linkedin.com/in/munawar-hussain-q57/', grad:'linear-gradient(135deg,#38BDF8,#2563EB)', ext:true},
+  {icon:'mail', href:'mailto:munawarhassanbiit@gmail.com', grad:'linear-gradient(135deg,#8B5CF6,#6236D9)', ext:false},
+  {icon:'phone', href:'tel:+923155714684', grad:'linear-gradient(135deg,#34D399,#0D9488)', ext:false}
+].forEach(s=>{
+  const a = document.createElement('a');
+  a.className = 'icon-btn';
+  a.style.background = s.grad;
+  a.style.width = a.style.height = '38px';
+  a.href = s.href;
+  if(s.ext){ a.target='_blank'; a.rel='noopener'; }
+  a.innerHTML = icons[s.icon];
+  footerSocial.appendChild(a);
+});
+
+// live clock in status bar
+function tick(){
+  const now = new Date();
+  let h = now.getHours()%12; if(h===0)h=12;
+  const m = String(now.getMinutes()).padStart(2,'0');
+  document.getElementById('clockText').textContent = `${h}:${m}`;
+}
+tick(); setInterval(tick,15000);
+
+// terminal typing effect
+const line = "adb install --production  ✓ 7 apps live on Play Store";
+let i=0;
+const termText = document.getElementById('termText');
+function typeTerm(){
+  if(i<=line.length){
+    termText.textContent = line.slice(0,i);
+    i++;
+    setTimeout(typeTerm, 38);
+  }
+}
+setTimeout(typeTerm, 900);
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
